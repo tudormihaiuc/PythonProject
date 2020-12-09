@@ -1,2 +1,9 @@
-Ana are mere 0747855444 si caise. Ionel nu stie sa zica nimic! Ce e asta? 2
+Ana are mere 0747855444 si caise. Ionel nu stie sa zica nimic! Ce e asta? 2312
 0747855444 0747855443
+1991212225891
+9991212225891
+19912122258912
+1991232225891
+1991212225891
+Telefoane se vor calcula valorile unice (daca un numar de telefon sau CNP apare de mai multe ori e calculat o singura
+data) si se vor si afisa pe ecran (vedeti sectiunea OUTPUT pentru un exemplu).

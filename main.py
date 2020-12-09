@@ -2,12 +2,12 @@ import nltk
 #nltk.download('punkt')
 from nltk.tokenize import sent_tokenize
 
-def function():
+def TextAnalyzer():
     nrOfLetters=0
     frOfLetters = {}
     percentages = {}
     phoneNumbers=[]
-    cnp={}
+    cnp=[]
     file = open("test.txt", "rt")
     data=file.read()
     nrOfSentences=sent_tokenize(data)
@@ -29,17 +29,22 @@ def function():
         while (i < x):
             if words[i].isnumeric():
                 if words[i][0] == "0" and words[i][1] == "7" and len(words[i]) == 10:
-                        phoneNumbers.append(words[i])
+                    phoneNumbers.append(words[i])
+                if len(words[i])==13 and int(words[i][0])>0 and int(words[i][0])<9 and ((words[i][3]=="0" and int(words[i][4])>0 and int(words[i][4])<10) or (words[i][3]=="1" and int(words[i][4])>=0 and int(words[i][4])<3)) and ((int(words[i][5])>=0 and int(words[i][5])<=2 and int(words[i][6])>=0 and int(words[i][6])<10) or (words[i][5]=="3" and int(words[i][6])>=0 and int(words[i][6])<=1)):
+                    cnp.append(words[i])
                 words.remove(words[i])
                 x = len(words)
             else:
                 i += 1
     print("Cuvinte = ",len(words))
     print("Propozitii: ",len(nrOfSentences))
+    resListCNP = list(dict.fromkeys(cnp))
+    print("CNP= ", len(resListCNP), resListCNP)
+    resListPhones = list(dict.fromkeys(phoneNumbers))
+    print("Telefoane= ", len(resListPhones), resListPhones)
     print("Litere: ")
     for i in frOfLetters:
         print(i," = ",frOfLetters[i]," (",percentages[i],"%)")
-    resList = list(dict.fromkeys(phoneNumbers))
-    print("Telefoane= ", len(resList),resList)
 
-function()
+
+TextAnalyzer()
